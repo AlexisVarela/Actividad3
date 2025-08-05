@@ -1,0 +1,166 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #000;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background-color: #000;
+  padding: 1.5rem;
+  text-align: center;
+  border-bottom: 1px solid #fff;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+main.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  padding: 1.5rem;
+  flex: 1;
+}
+
+section {
+  background-color: rgba(255, 255, 255, 0.277);
+  padding: 1.2rem;
+  border-radius: 8px; /* Bordes redondeados */
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 1.3rem;
+  border-bottom: 1px solid #fff;
+  padding-bottom: 0.5rem;
+  color: #fff;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin: 0.8rem 0 0.3rem;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+input, select {
+  padding: 0.6rem;
+  background-color: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  font-size: 0.95rem;
+  margin-bottom: 0.3rem;
+  border-radius: 5px; /* Bordes redondeados */
+}
+
+/* Botón principal */
+button[type="submit"] {
+  background-color: #fff;
+  color: #000;
+  border: none;
+  padding: 0.7rem;
+  margin-top: 1.2rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s;
+  border-radius: 5px; /* Bordes redondeados */
+  font-size: 0.9rem;
+}
+
+/* Botón de inventario más pequeño */
+#btnInventario {
+  background-color: #fff;
+  color: #000;
+  border: none;
+  padding: 0.5rem 0.8rem;
+  margin-top: 0.8rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s;
+  border-radius: 5px; /* Bordes redondeados */
+  font-size: 0.85rem;
+}
+
+button:hover {
+  background-color: #ddd;
+}
+
+table {
+  width: 100%;;
+  margin-top: 1rem;
+  border: 1px #fff;
+  border-radius: 10px; /* Bordes redondeados */
+  overflow: hidden;
+}
+
+th, td {
+  border: 1px solid #fff;
+  padding: 0.6rem;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+th {
+  background-color: #111;
+  font-weight: 600;
+}
+
+.hidden {
+  display: none;
+}
+
+footer {
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  border-top: 1px solid #fff;
+  margin-top: auto;
+  font-size: 0.8rem;
+}
+
+footer p {
+  font-size: 15px;
+}
+/* Mejoras de visibilidad */
+#productoSelect, #cantidadInput, #nuevoNombre, #nuevoPrecio, #nuevoInventario {
+  color: #fff !important;
+  background-color: #000 !important;
+}
+
+.resultado {
+  font-size: 1rem;
+  color: #fff;
+  margin-top: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  main.container {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+    gap: 1rem;
+  }
+  
+  section {
+    padding: 1rem;
+  }
+  
+  h2 {
+    font-size: 1.2rem;
+  }
+}
+

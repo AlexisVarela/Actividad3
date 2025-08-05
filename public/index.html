@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>API REST</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header>
+    <h1>PUNTO DE VENTA DE MOI</h1>
+  </header>
+
+  <main class="container">
+    <!-- Formulario de Venta -->
+    <section>
+      <h2>Realizar Venta</h2>
+      <form id="ventaForm">
+        <label for="productoSelect">Producto:</label>
+        <select id="productoSelect" required></select>
+
+        <label for="cantidadInput">Cantidad:</label>
+        <input type="number" id="cantidadInput" min="1" required>
+
+        <button type="submit">Vender</button>
+      </form>
+
+      <p id="totalResultado" class="resultado"></p>
+      <p id="errorMensaje" class="error"></p>
+    </section>
+
+    <!-- Agregar nuevo producto -->
+    <section>
+      <h2>Agregar Producto</h2>
+      <form id="formAgregarProducto">
+        <label for="nuevoNombre">Nombre del producto:</label>
+        <input type="text" id="nuevoNombre" required>
+
+        <label for="nuevoPrecio">Precio:</label>
+        <input type="number" id="nuevoPrecio" min="0" required>
+
+        <label for="nuevoInventario">Inventario inicial:</label>
+        <input type="number" id="nuevoInventario" min="0" required>
+
+        <button type="submit">Agregar</button>
+      </form>
+      <p id="mensajeAgregar" class="resultado"></p>
+    </section>
+
+     <!-- Inventario -->
+    <section>
+      <h2>Inventario</h2>
+      <button id="btnInventario">Ver Inventario</button>
+
+      <table id="tablaInventario" class="hidden">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Producto</th>
+            <th>Precio</th>
+            <th>Inventario</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+    
+  </main>
+
+  <footer>
+    <p>&copy; 2025 API DE ALERIS (ALEX, ERIC, JOSELUIS)</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
