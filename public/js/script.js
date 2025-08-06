@@ -143,6 +143,7 @@ function cargarInventario() {
               alert('Producto actualizado con éxito');
               document.getElementById('modalActualizar').style.display = 'none';
               cargarInventario(); // refrescar
+              cargarProductos(); // refrescar select
             });
           };
         });
@@ -160,6 +161,7 @@ function cargarInventario() {
             .then(result => {
               alert(result.message);
               cargarInventario(); // refrescar
+              cargarProductos(); // refrescar select
             });
           }
         });
@@ -205,7 +207,7 @@ formAgregar.addEventListener('submit', function (e) {
       mensajeAgregar.textContent = 'Producto agregado correctamente.';
       formAgregar.reset();
       cargarProductos();
-      if (!tabla.classList.contains('hidden')) cargarInventario();
+      if (!tabla.classList.contains('hidden')) cargarInventario() ;
     })
     .catch(() => {
       mensajeAgregar.textContent = 'Error al agregar producto.';
