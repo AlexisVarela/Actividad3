@@ -98,8 +98,54 @@ function cargarInventario() {
           <td>${prod.nombre}</td>
           <td>$${prod.precio}</td>
           <td>${prod.inventario}</td>
+          <td><span class="icono-editar" data-id="${prod.id}" style="cursor:pointer;">🖉</span></td>
+          <td><span class="icono-editar" data-id="${prod.id}" style="trash-outline">🗑️</span></td>
         `;
         tablaInventario.appendChild(row);
+      });
+
+      document.getElementById('btnCancelar').addEventListener('click', () => {
+        document.getElementById('modalActualizar').style.display = 'none';
+      });
+      
+      
+      // Asociar eventos de clic a los íconos
+      document.querySelectorAll('.icono-editar').forEach(icono => {
+        icono.addEventListener('click', (e) => {
+          const id = e.target.dataset.id;
+          const producto = data.data.find(p => p.id == id);
+
+          // Mostrar modal y llenar campos
+          document.getElementById('modalNombre').value = producto.nombre;
+          document.getElementById('modalPrecio').value = producto.precio;
+          document.getElementById('modalInventario').value = producto.inventario;
+          document.getElementById('modalActualizar').style.display = 'block';
+
+          // Guardar cambios
+          document.getElementById('btnGuardar').onclick = () => {
+            const nuevoNombre = document.getElementById('modalNombre').value;
+            const nuevoPrecio = document.getElementById('modalPrecio').value;
+            const nuevoInventario = document.getElementById('modalInventario').value;
+
+            fetch(`${API_BASE}/productos/${id}`, {
+              method: 'PUT',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({
+                nombre: nuevoNombre,
+                precio: nuevoPrecio,
+                inventario: nuevoInventario
+              })
+            })
+            .then(res => res.json())
+            .then(result => {
+              alert('Producto actualizado con éxito');
+              document.getElementById('modalActualizar').style.display = 'none';
+              cargarInventario(); // refrescar
+            });
+          };
+        });
       });
     });
 }
@@ -157,3 +203,4 @@ function limpiarMensajes() {
   errorMensaje.textContent = '';
   mensajeAgregar.textContent = '';
 }
+

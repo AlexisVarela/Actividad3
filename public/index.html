@@ -59,17 +59,33 @@
             <th>Producto</th>
             <th>Precio</th>
             <th>Inventario</th>
+            <th><ion-icon name="create-outline"></ion-icon></th>
+            <th><ion-icon name="trash-outline" size="small" ></ion-icon></th>
           </tr>
         </thead>
         <tbody></tbody>
       </table>
     </section>
     
+    <div id="modalActualizar" class="modalActualizar" style="display:none;">
+      <div class="contenido">
+        <input type="text" name="Producto" id="modalNombre">
+        <input type="number" name="Precio" id="modalPrecio">
+        <input type="number" name="Inventario" id="modalInventario">
+        <button class="btn-editar" id="btnGuardar">Guardar</button>
+        <button class="btn-editar" id="btnCancelar">Cancelar</button>
+      </div>
+    </div>
+
+    
   </main>
 
   <footer>
     <p>&copy; 2025 API DE ALERIS (ALEX, ERIC, JOSELUIS)</p>
   </footer>
+
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
   <script src="js/script.js"></script>
 </body>

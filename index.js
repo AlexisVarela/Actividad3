@@ -86,6 +86,29 @@ app.patch('/productos/vender/:id', (req, res) => {
     });
 });
 
+// ruta para editar productos 
+app.patch('/productos/:id', (req, res) => {
+  const id = parseInt(req.params.id);
+  const { nombre, precio, inventario } = req.body;
+
+  const producto = productos.find(p => p.id === id);
+  if (!producto) {
+    return res.status(404).json({ success: false, message: 'Producto no encontrado' });
+  }
+
+  if (nombre && typeof nombre === 'string') producto.nombre = nombre.trim();
+  if (!isNaN(precio) && precio > 0) producto.precio = Number(precio);
+  if (!isNaN(inventario) && inventario >= 0) producto.inventario = Number(inventario);
+
+  return res.json({
+    success: true,
+    message: 'Producto actualizado',
+    data: producto
+  });
+});
+
+
+
 // Ruta no encontrada
 app.use((req, res) => {
     res.status(404).json({ success: false, message: 'Ruta no encontrada' });

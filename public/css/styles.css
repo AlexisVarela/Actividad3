@@ -32,7 +32,7 @@ main.container {
 }
 
 section {
-  background-color: rgba(255, 255, 255, 0.277);
+  background-color: rgb(60, 60, 60);
   padding: 1.2rem;
   border-radius: 8px; /* Bordes redondeados */
 }
@@ -114,7 +114,7 @@ th, td {
 }
 
 th {
-  background-color: #111;
+  background-color: #4a4a4a;
   font-weight: 600;
 }
 
@@ -164,3 +164,35 @@ footer p {
   }
 }
 
+.modalActualizar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modalActualizar .contenido {
+  background: rgb(68, 67, 67);
+  padding: 20px;
+  border-radius: 8px;
+}
+.btn-editar{ 
+    grid-area: btn;
+    width: 180px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #240aa5c8;
+    color: white; 
+    align-self: end;
+    transition: .3s ease-in;
+}
+
+.btn-editar:hover{
+    padding: 5px;
+    background-color: #180382c8;
+    transition: .3s ease;
+}
