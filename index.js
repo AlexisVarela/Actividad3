@@ -107,6 +107,19 @@ app.patch('/productos/:id', (req, res) => {
   });
 });
 
+// ruta para eliminar productos
+app.delete('/productos/:id', (req, res) => {
+  const id = parseInt(req.params.id);
+  const index = productos.findIndex(p => p.id === id);
+
+  if (index === -1) {
+    return res.status(404).json({ success: false, message: 'Producto no encontrado' });
+  }
+
+  productos.splice(index, 1);
+  return res.json({ success: true, message: 'Producto eliminado exitosamente' });
+});
+
 
 
 // Ruta no encontrada

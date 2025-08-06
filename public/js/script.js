@@ -99,7 +99,7 @@ function cargarInventario() {
           <td>$${prod.precio}</td>
           <td>${prod.inventario}</td>
           <td><span class="icono-editar" data-id="${prod.id}" style="cursor:pointer;">🖉</span></td>
-          <td><span class="icono-editar" data-id="${prod.id}" style="trash-outline">🗑️</span></td>
+          <td><span class="icono-eliminar" data-id="${prod.id}" style="cursor:pointer">🗑️</span></td>
         `;
         tablaInventario.appendChild(row);
       });
@@ -128,7 +128,7 @@ function cargarInventario() {
             const nuevoInventario = document.getElementById('modalInventario').value;
 
             fetch(`${API_BASE}/productos/${id}`, {
-              method: 'PUT',
+              method: 'PATCH',
               headers: {
                 'Content-Type': 'application/json'
               },
@@ -147,6 +147,24 @@ function cargarInventario() {
           };
         });
       });
+
+      // Asociar eventos de clic a los íconos de eliminar
+      document.querySelectorAll('.icono-eliminar').forEach(icono => {
+        icono.addEventListener('click', (e) => {
+          const id = e.target.dataset.id;
+          if (confirm('¿Estás seguro de eliminar este producto?')) {
+            fetch(`${API_BASE}/productos/${id}`, {
+              method: 'DELETE'
+            })
+            .then(res => res.json())
+            .then(result => {
+              alert(result.message);
+              cargarInventario(); // refrescar
+            });
+          }
+        });
+      });
+
     });
 }
 
