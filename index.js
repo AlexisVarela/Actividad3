@@ -96,9 +96,14 @@ app.patch('/productos/:id', (req, res) => {
     return res.status(404).json({ success: false, message: 'Producto no encontrado' });
   }
 
-  if (nombre && typeof nombre === 'string') producto.nombre = nombre.trim();
-  if (!isNaN(precio) && precio > 0) producto.precio = Number(precio);
-  if (!isNaN(inventario) && inventario >= 0) producto.inventario = Number(inventario);
+  if (nombre && typeof nombre === 'string' && !isNaN(precio) && precio > 0 && !isNaN(inventario) && inventario >= 0) {
+    producto.nombre = nombre.trim();
+    producto.precio = Number(precio);
+    producto.inventario = Number(inventario);
+  } else
+    {
+        return res.status(400).json({ success: false, message: 'Datos inválidos para actualizar el producto' });
+    }
 
   return res.json({
     success: true,
