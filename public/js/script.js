@@ -69,7 +69,7 @@ ventaForm.addEventListener('submit', function (e) {
         mostrarError(ventaResult.message);
         return;
       }
-
+j
       totalResultado.textContent += `\nInventario restante: ${ventaResult.data.inventarioRestante}`;
       if (!tabla.classList.contains('hidden')) cargarInventario();
     })
