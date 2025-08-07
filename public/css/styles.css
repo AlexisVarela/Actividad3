@@ -71,7 +71,6 @@ button[type="submit"] {
   background-color: #fff;
   color: #000;
   border: none;
-  padding: 0.7rem;
   margin-top: 1.2rem;
   cursor: pointer;
   font-weight: 600;
@@ -170,29 +169,39 @@ footer p {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0);
-  display: flex;
+  background: rgba(50, 50, 50, 0.47);
+  display: none;
   justify-content: center;
   align-items: center;
+  z-index: 999; /* Asegura que esté encima de todo */
 }
+
 .modalActualizar .contenido {
   background: rgb(68, 67, 67);
   padding: 20px;
   border-radius: 8px;
+  width: 280px;
+  min-height: 300px;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
 }
-.btn-editar{ 
-    grid-area: btn;
+
+.btn-editar{
     width: 180px;
-    height: 40px;
+    height: 30px;
     border-radius: 10px;
-    background-color: #240aa5c8;
-    color: white; 
-    align-self: end;
+    background-color: #f3f3f3ed;
+    color: black; 
     transition: .3s ease-in;
+    padding: 0px;
 }
 
 .btn-editar:hover{
     padding: 5px;
-    background-color: #180382c8;
+    background-color: #ffffffc8;
     transition: .3s ease;
 }

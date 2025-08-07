@@ -119,7 +119,7 @@ function cargarInventario() {
           document.getElementById('modalNombre').value = producto.nombre;
           document.getElementById('modalPrecio').value = producto.precio;
           document.getElementById('modalInventario').value = producto.inventario;
-          document.getElementById('modalActualizar').style.display = 'block';
+          document.getElementById('modalActualizar').style.display = 'flex';
 
           // Guardar cambios
           document.getElementById('btnGuardar').onclick = () => {
